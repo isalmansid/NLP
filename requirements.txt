@@ -1,0 +1,25 @@
+pyresparser
+numpy
+python-docx
+docx
+pandas
+nltk
+sklearn
+ftfy
+flask
+docx
+scikit-learn
+spacy
+tqdm
+selenium
+bs4
+beautifulsoup4
+enlighten
+flask
+numpy
+sklearn
+gunicorn
+pandas
+joblib
+scikit-learn
+python -m spacy download en_core_web_sm
