@@ -6,16 +6,16 @@ import pandas as pd
 import re
 from ftfy import fix_text
 import joblib
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk import WordNetLemmatizer
+#from nltk.corpus import stopwords
+#from nltk.tokenize import word_tokenize
+#from nltk import WordNetLemmatizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 import spacy
 #nlp = spacy.load("en_core_web_sm")
 #nlp = en_core_web_sm.load()
-import nltk
+#import nltk
 #nltk.download()
 
 spacy.load("en_core_web_sm")
