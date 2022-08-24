@@ -16,7 +16,7 @@ import spacy
 #nlp = spacy.load("en_core_web_sm")
 #nlp = en_core_web_sm.load()
 import nltk
-nltk.download()
+#nltk.download()
 
 spacy.load("en_core_web_sm")
 #spacy.load('en_core_web_sm')
@@ -24,9 +24,9 @@ spacy.load("en_core_web_sm")
 
 #import en_core_web_sm
 
-nltk.download('stopwords')
+#nltk.download('stopwords')
 
-stop_words = set(stopwords.words('english'))
+#stop_words = set(stopwords.words('english'))
 
 #stopw = nltk.corpus.stopwords.words('english')
 #print(stopwords[:10])
@@ -60,7 +60,13 @@ df = joblib.load('mum.pkl')
 #df = pd.read_csv('mum.csv', sep='|', encoding='cp1252')
 
 df['test'] = df['Job_Description'].apply(
-    lambda x: ' '.join([word for word in str(x).split() if len(word) > 2 and word not in (stop_words)]))
+   lambda x: ' '.join([word for word in str(x).split() if len(word) > 2]))
+
+
+
+#df['test'] = df['Job_Description'].apply(
+ #  lambda x: ' '.join([word for word in str(x).split() if len(word) > 2 and word not in (stop_words)]))
+
 
 app = Flask(__name__)
 
