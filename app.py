@@ -5,9 +5,10 @@ import numpy as np
 import pandas as pd
 import re
 from ftfy import fix_text
-import nltk
 import joblib
 from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk import WordNetLemmatizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
@@ -23,7 +24,7 @@ spacy.load("en_core_web_sm")
 
 nltk.download('stopwords')
 
-stopw = set(stopwords.words('english'))
+stop_words = set(stopwords.words('english'))
 
 #stopw = nltk.corpus.stopwords.words('english')
 #print(stopwords[:10])
@@ -57,7 +58,7 @@ df = joblib.load('mum.pkl')
 #df = pd.read_csv('mum.csv', sep='|', encoding='cp1252')
 
 df['test'] = df['Job_Description'].apply(
-    lambda x: ' '.join([word for word in str(x).split() if len(word) > 2 and word not in (stopw)]))
+    lambda x: ' '.join([word for word in str(x).split() if len(word) > 2 and word not in (stop_words)]))
 
 app = Flask(__name__)
 
