@@ -186,16 +186,22 @@ def submit_data():
 #serve(app, host="0.0.0.0", port=8080)
 
 #server = http.createServer(app)
-
+import os
+from os import path, environ
 if __name__ == "__main__":
     app.debug = True
-    app.run()
-    #FLASK_APP = app
-    #FLASK_ENV = "development"
-    # app.run(debug=True)
-    #app.run('localhost', 5000, debug=True)
+    app.run('localhost', 5000)
+    #app.run(host='0.0.0.0')
+    #port = os.environ.get('PORT', 33507)
+    #app.run(port)
+    #app.run(port=process.env.PORT | port)
 
-    #app.run(host='0.0.0.0', debug=True)
+    FLASK_APP = app
+    FLASK_ENV = "development"
+    # app.run(debug=True)
+
+
+
 
 
     #FLASK_APP = app
