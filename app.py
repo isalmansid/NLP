@@ -15,6 +15,8 @@ from sklearn.neighbors import NearestNeighbors
 import spacy
 #nlp = spacy.load("en_core_web_sm")
 #nlp = en_core_web_sm.load()
+import nltk
+nltk.download()
 
 spacy.load("en_core_web_sm")
 #spacy.load('en_core_web_sm')
