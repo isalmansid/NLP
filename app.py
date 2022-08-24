@@ -6,7 +6,7 @@ import pandas as pd
 import re
 from ftfy import fix_text
 import nltk
-
+import joblib
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -31,7 +31,27 @@ stopw = set(stopwords.words('english'))
 
 #df = pd.read_csv('mum.csv',sep=";", encoding='cp1252',error_bad_lines=False)
 
-df = pd.read_csv('mum.csv')
+
+
+
+
+
+
+#
+#
+
+#
+#df = pd.read_csv('mum.csv')
+
+#
+#
+#
+
+
+df = joblib.load('mum.pkl')
+#df = pd.DataFrame()
+
+
 
 #df = pd.read_csv('mum.csv', sep='|', encoding='cp1252')
 
