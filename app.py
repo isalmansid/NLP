@@ -6,16 +6,16 @@ import pandas as pd
 import re
 from ftfy import fix_text
 import joblib
-#from nltk.corpus import stopwords
-#from nltk.tokenize import word_tokenize
-#from nltk import WordNetLemmatizer
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk import WordNetLemmatizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.neighbors import NearestNeighbors
 import spacy
 #nlp = spacy.load("en_core_web_sm")
 #nlp = en_core_web_sm.load()
-#import nltk
+
 #nltk.download()
 
 spacy.load("en_core_web_sm")
@@ -26,12 +26,22 @@ spacy.load("en_core_web_sm")
 
 #nltk.download('stopwords')
 
-#stop_words = set(stopwords.words('english'))
+
+import nltk
+nltk.download('stopwords')
+
+
+stop_words = set(stopwords.words('english'))
+
+
+
+
+
 
 #stopw = nltk.corpus.stopwords.words('english')
 #print(stopwords[:10])
 
-#nl = nltk.download('stopwords')
+
 
 #df = pd.read_csv('mum.csv',sep=";", encoding='cp1252',error_bad_lines=False)
 
@@ -59,13 +69,12 @@ df = joblib.load('mum.pkl')
 
 #df = pd.read_csv('mum.csv', sep='|', encoding='cp1252')
 
-df['test'] = df['Job_Description'].apply(
-   lambda x: ' '.join([word for word in str(x).split() if len(word) > 2]))
-
-
-
 #df['test'] = df['Job_Description'].apply(
- #  lambda x: ' '.join([word for word in str(x).split() if len(word) > 2 and word not in (stop_words)]))
+ #  lambda x: ' '.join([word for word in str(x).split() if len(word) > 2]))
+
+
+
+df['test'] = df['Job_Description'].apply(lambda x: ' '.join([word for word in str(x).split() if len(word) > 2 and word not in (stop_words)]))
 
 
 app = Flask(__name__)
@@ -200,7 +209,8 @@ import os
 from os import path, environ
 if __name__ == "__main__":
     app.debug = True
-    app.run('localhost', 33507)
+    app.run('localhost',8080)
+    #app.run('localhost', 33507)
     #app.run('localhost', 5000)
     #app.run(host='0.0.0.0')
     #port = os.environ.get('PORT', 33507)
